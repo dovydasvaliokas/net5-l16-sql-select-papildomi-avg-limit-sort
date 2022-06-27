@@ -92,3 +92,60 @@ FROM
     `receptas`
 WHERE
     kalorijos_per100g > 800;
+
+
+-- Išvedame visus receptus surikiuotus pagal kainas didėjimo tvarka
+SELECT
+    *
+FROM
+    `receptas`
+ORDER BY
+    kaina ASC;
+
+
+
+-- Išvedame visus receptus surikiuotus pagal kainą mažėjimo tvarka, o jeigu kaian tokia pati, tai pagal kalorijas didėjančio
+SELECT
+    *
+FROM
+    `receptas`
+ORDER BY
+	kaina DESC,
+    kalorijos_per100g ASC;
+
+
+-- Išvedame surikiuotus receptus (kurių kaina mažesnė nei 5) pagal pavadinimą abėcėlės didėjančia tvarka
+SELECT
+    *
+FROM
+    `receptas`
+WHERE
+    kaina < 5
+ORDER BY
+	pavadinimas ASC;
+
+
+-- Išvedame pirmus penkis naudojant limit
+SELECT
+    *
+FROM
+    `receptas`
+LIMIT 5
+
+
+-- Galima pasakyti NUO KELINTO pradėti išvedinėti. Tai tarkim išvedame nuo penkto dar penkis, tai gaunasi nuo 5 iki 10
+SELECT
+    *
+FROM
+    `receptas`
+LIMIT 5, 5
+
+
+-- Išvedame brangiausius tris receptus (naudojant order by ir limit kartu),
+SELECT
+    *
+FROM
+    `receptas`
+ORDER BY
+	kaina DESC
+LIMIT 3
