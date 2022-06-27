@@ -48,6 +48,3 @@ FROM
     `receptas`
 WHERE
     pavadinimas = "Mutinys" OR pavadinimas = "Košė";
-
-
-    
